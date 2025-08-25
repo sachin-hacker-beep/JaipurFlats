@@ -94,11 +94,11 @@
     font-size: 14px;
 }
 .hero1{
-    background-image: url('./jaipurGhar/images/banner-01.jpg');
+    background-image: url('./images/banner-01.jpg');
     background-repeat: no-repeat;
 }
 .hero1banner{
-    padding: 220px 18% 320px 18%;
+    padding: 220px 18% 320px 18%;   
 }
 .hero1banner span{
     color: #f35525;
@@ -170,7 +170,7 @@
     color: #f35525;
 }
 .hero3{
-    background-image: url( './jaipurGhar/dist/images/video-bg.jpg');
+    background-image: url( './images/video-bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     padding: 100px 0px 350px 0px;

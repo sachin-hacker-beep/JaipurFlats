@@ -1,7 +1,7 @@
 // import React from 'react'
 // import featureicon from '../assets/featured-icon.png';
 // import featureimg from '../assets/featured.jpg'; 
-function Bestview() {
+function Bestview() {z
   return (
     <div>
       <section className="hero2 container-fluid">
