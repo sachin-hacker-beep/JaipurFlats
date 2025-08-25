@@ -1,5 +1,7 @@
 // import Nav from 'react-bootstrap/Nav';
-
+import imgone from '../assets/deal-01.jpg';
+import imgtwo from '../assets/deal-02.jpg';
+import imgthree from '../assets/deal-03.jpg'; 
 function Bestdeals() {
   return (
     <>
@@ -26,7 +28,7 @@ function Bestdeals() {
                 <div className="best-deal row">
                   <div className="col-lg-5  col-6 col-xl-5 ps-xl-5  col-md-5 d-md-flex justify-content-space-evenly deal-img">
                     <div>
-                      <img className="img-fluid" src="./images/property-01.jpg" alt="" />
+                      <img className="img-fluid" src={imgone} alt="" />
                     </div>
                   </div>
                   <div className="col-lg-5 col-6 col-xl-3 col-md-5 deal">
@@ -56,7 +58,7 @@ function Bestdeals() {
               <div className="best-deal row">
                 <div className="col-lg-5 col-6 col-xl-5 ps-xl-5  col-md-5 d-md-flex justify-content-space-evenly deal-img">
                   <div>
-                    <img className="img-fluid" src="./images/property-02.jpg" alt="" />
+                    <img className="img-fluid" src={imgtwo} alt="" />
                   </div>
                 </div>
                 <div className="col-lg-5 col-6 col-xl-3  col-md-5 deal ">
@@ -86,7 +88,7 @@ function Bestdeals() {
               <div className="best-deal row">
                 <div className="col-lg-5 col-6 col-xl-5 ps-xl-5  col-md-5 d-md-flex justify-content-space-evenly deal-img">
                   <div>
-                      <img className="img-fluid" src="./images/property-03.jpg" alt="" />
+                      <img className="img-fluid" src={imgthree} alt="" />
                   </div>
                 </div>                
                 <div className="col-lg-5 col-6 col-xl-3  col-md-5 deal ">

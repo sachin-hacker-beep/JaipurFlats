@@ -1,16 +1,15 @@
 import React from 'react'
-
+import banner1 from '../assets/banner-01.jpg';
 function Banner() {
   return (
     <>
-    <section className="hero1 container-fluid">
+    <section style={{backgroundImage:`url(${banner1})`}} className="hero1 container-fluid">
         <div className="hero1banner row d-flex" >
-          <img className='w-full' src="./images/banner-01.jpg" alt="" />
-            <div className="hero1-banner-cont">
-                <span className="p-1  bg-white col-1">JAIPUR, INDIA</span>
-                <h1 className="mt-4 text-uppercase text-white">hurry !<br/>
-                get the<br/>best <br/> villa<br/> for you</h1>
-            </div>
+          <div className="hero1-banner-cont ">
+            <span className="p-1  bg-white col-1">JAIPUR, INDIA</span>
+            <h1 className="mt-4 text-uppercase text-white">hurry !<br/>
+            get the<br/>best <br/> villa<br/> for you</h1>
+          </div>
         </div>
     </section>  
     </>

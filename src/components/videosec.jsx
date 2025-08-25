@@ -1,16 +1,18 @@
 import React from 'react'
+import video_frame from '../assets/video-frame.jpg';
+import video_bg from '../assets/video-bg.jpg';
 
 function Videosec() {
   return (
     <>
-        <section className="hero3 container-fluid">
+        <section style={{backgroundImage:`url(${video_bg})`}} className="hero3 container-fluid">
             <div className="container">
                 <p className="video-text hero-head text-uppercase  text-center mt-5">| video-view</p>
                 <p className="lh-base text-capitalize text-center fs-1 fw-bold text-white">get closer view <br/>& different <br/>feelings</p>
             </div>
             <div className="container">
                 <div className="sofa">
-                    <img className="img-fluid" src="./images/video-frame.jpg" alt="" />
+                    <img className="img-fluid" src={video_frame} alt="" />
                     <span className="play-div" >
                         <a className="p-2" href="">
                             <i className="fa fa-play"></i>

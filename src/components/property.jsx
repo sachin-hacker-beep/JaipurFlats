@@ -1,3 +1,9 @@
+import Propertyimg1 from "../assets/property-01.jpg";
+import Propertyimg2 from "../assets/property-02.jpg";
+import Propertyimg3 from "../assets/property-03.jpg";
+import Propertyimg4 from "../assets/property-04.jpg";
+import Propertyimg5 from "../assets/property-05.jpg";
+import Propertyimg6 from "../assets/property-06.jpg";
 const villas = [
   {
     type: "Luxury Villa",
@@ -8,7 +14,7 @@ const villas = [
     area: "545m2",
     floor: 3,
     parking: "6 spots",
-    image: "./images/property-01.jpg"
+    image: Propertyimg1
   },
   {
     type: "Luxury Villa",
@@ -19,7 +25,7 @@ const villas = [
     area: "450m2",
     floor: 3,
     parking: "8 spots",
-    image: " ./images/property-02.jpg"
+    image: Propertyimg2 
   },
   {
     type: "Luxury Villa",
@@ -30,7 +36,7 @@ const villas = [
     area: "225m2",
     floor: 3,
     parking: "10 spots",
-    image: " ./images/property-03.jpg"
+    image: Propertyimg3
   },
    {
     type: "Apartment",
@@ -41,7 +47,7 @@ const villas = [
     area: "125m2",
     floor: "25th",
     parking: "2 cars",
-    image: " ./images/property-04.jpg"
+    image: Propertyimg4
   },
   {
     type: "Penthouse",
@@ -52,7 +58,7 @@ const villas = [
     area: "180m2",
     floor: "38th",
     parking: "2 cars",
-    image: " ./images/property-05.jpg"
+    image: Propertyimg5
   },
   {
     type: "Modern Condo",
@@ -63,7 +69,7 @@ const villas = [
     area: "165m2",
     floor: "26th",
     parking: "3 cars",
-    image: " ./images/property-06.jpg"
+    image: Propertyimg6
   },
   {
     type: "Luxury Villa",
@@ -74,7 +80,7 @@ const villas = [
     area: "545m2",
     floor: 3,
     parking: "6 spots",
-    image: " ./images/property-01.jpg"
+    image: Propertyimg1
   },
   {
     type: "Luxury Villa",
@@ -85,7 +91,7 @@ const villas = [
     area: "450m2",
     floor: 3,
     parking: "8 spots",
-    image: " ./images/property-02.jpg"
+    image: Propertyimg2
   },
   {
     type: "Luxury Villa",
@@ -96,7 +102,7 @@ const villas = [
     area: "225m2",
     floor: 3,
     parking: "10 spots",
-    image: " ./images/property-03.jpg"
+    image: Propertyimg3
   }
 ]
 const propdata=villas.map(villa=>{

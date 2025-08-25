@@ -1,6 +1,9 @@
-// import React from 'react'
-// import featureicon from '../assets/featured-icon.png';
-// import featureimg from '../assets/featured.jpg'; 
+import featured from '../assets/featured.jpg';
+import featured_icon from '../assets/featured-icon.png';
+import info_icon1 from '../assets/info-icon-01.png';
+import info_icon2 from '../assets/info-icon-02.png';
+import info_icon3 from '../assets/info-icon-03.png';
+import info_icon4 from '../assets/info-icon-04.png'; 
 function Bestview() {
   return (
     <div>
@@ -8,9 +11,9 @@ function Bestview() {
         <div className="container featured-div row p-0 " >
             <div className="container p-md-5  pb-0 main-feature">
                 <figure className="col-lg-4 col-6 col-md-6 main-feature-box1">
-                    <img className="img-fluid" src="./images/featured.jpg" alt="Featured"/>
+                    <img className="img-fluid" src={featured} alt="Featured"/>
                     <div className="pic-div d-none d-md-flex ">
-                        <a href=""><img src="./images/featured-icon.png" alt="Featured Icon"/></a>    
+                        <a href=""><img src={featured_icon} alt="Featured Icon"/></a>    
                     </div>
                 </figure>
                 
@@ -54,7 +57,7 @@ function Bestview() {
             </div>
             <div className=" main-feature-box3 row gy-5 mt-0">
                     <div className="col-lg-3 col-6 col-md-6 d-flex  justify-content-center align-items-center">
-                        <img className="info-img" src="./images/info-icon-01.png" alt="" />
+                        <img className="info-img" src={info_icon1} alt="" />
                         <h4>
                             250 m2
                             className<br/>
@@ -63,7 +66,7 @@ function Bestview() {
                         </h4>
                     </div>
                     <div className="col-lg-3 col-6 col-md-6 d-flex justify-content-center align-items-center">
-                        <img className="info-img" src="./images/info-icon-02.png" alt="" />
+                        <img className="info-img" src={info_icon2} alt="" />
                         <h4>
                             Contract
                             className<br/>
@@ -72,7 +75,7 @@ function Bestview() {
                         </h4>
                     </div>
                     <div className="col-lg-3 col-6 col-md-6 d-flex justify-content-center align-items-center"> 
-                        <img className="info-img" src="./images/info-icon-03.png" alt="" />
+                        <img className="info-img" src={info_icon3} alt="" />
                         <h4>
                             Payment
                             className<br/>
@@ -81,7 +84,7 @@ function Bestview() {
                         </h4>
                     </div>
                     <div className="col-lg-3 col-6 col-md-6 d-flex  justify-content-center align-items-center">
-                        <img className="info-img" src="./images/info-icon-04.png" alt="" />
+                        <img className="info-img" src={info_icon4} alt="" />
                         <h4>
                             Safety
                             className<br/>
