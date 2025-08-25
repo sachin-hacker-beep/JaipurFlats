@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 
 function Navigation() {
 const [showmenu, setShowMenu] = useState(false);
@@ -46,14 +46,14 @@ window.onscroll = () => {
                 <i onClick={HandleMenu} className={`col-lg-2 col-2 col-md-6 fs-4 d-flex justify-content-end d-lg-none  text-black ${isopen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'}`} id="bars"></i>
 
                 <ul className={`col-lg-10 ${showmenu ? 'nav-mob' : 'd-none'} col-md-12 list-unstyled d-lg-flex  justify-content-end`}  id="navlist">
-                    <li className="w-full nav-item-li"><a className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} href="">home</a></li>
-                    <li className="w-full nav-item-li"><a className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} href="">properties</a></li>
-                    <li className="w-full nav-item-li"><a className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} href=""> contact us</a></li>
+                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/">home</Link></li>
+                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Properties">properties</Link></li>
+                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to=""> contact us</Link></li>
                     <div className="special-link d-none d-lg-flex  justify-content-center align-items-center gap-1 ">
                         <span className="special-icon ">
                             <i className="fa-solid fa-calendar  text-white"></i>
                         </span>
-                         <li className="text-center"><a className="text-capitalize nav-items text-white" href=""> schedule visit</a></li>
+                         <li className="text-center"><Link className="text-capitalize nav-items text-white" to="/BookSchedule"> schedule visit</Link></li>
                     </div>
                 </ul>
             </div>

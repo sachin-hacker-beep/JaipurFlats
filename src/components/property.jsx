@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Propertyimg1 from "../assets/property-01.jpg";
 import Propertyimg2 from "../assets/property-02.jpg";
 import Propertyimg3 from "../assets/property-03.jpg";
@@ -119,10 +120,10 @@ const propdata=villas.map(villa=>{
                     <li className="text-capitalize">bedroom : {villa.bedrooms} </li>
                     <li className="text-capitalize">bathroom : {villa.bathrooms} </li>
                     <li className="text-capitalize">area : {villa.area} </li>
-                    <li className="text-capitalize">floor : {villa.floor} <b>3</b></li>
-                    <li className="text-capitalize">parking: {villa.parking} <b>6 slots</b></li>
+                    <li className="text-capitalize">floor : {villa.floor}</li>
+                    <li className="text-capitalize">parking: {villa.parking}</li>
                 </ul>
-                <button className="main-btn text-center"><a> Schedule a Visit</a></button>
+                <button className="main-btn text-center "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
             </div>        
         </div>
       </>

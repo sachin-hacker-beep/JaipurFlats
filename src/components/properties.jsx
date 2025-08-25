@@ -1,15 +1,14 @@
-// import React from 'react'
-// import Navigation from './navbar'
+
+import Navigation from './navbar'
 import Property from './property'
-// import Footer from './footer'
-// import App from '../App'
+import Footer from './footer'
 
 function Properties({ heading }) {
   return (
     <>
-    {/* <Navigation /> */}
-    <Property />
-    {/* <Footer /> */}
+    <Navigation />
+    <Property data={heading} />
+    <Footer />
     </>
   )
 }
