@@ -5,6 +5,7 @@ function Banner() {
     <>
     <section className="hero1 container-fluid">
         <div className="hero1banner row d-flex" >
+          <img className='w-full' src="./images/banner-01.jpg" alt="" />
             <div className="hero1-banner-cont">
                 <span className="p-1  bg-white col-1">JAIPUR, INDIA</span>
                 <h1 className="mt-4 text-uppercase text-white">hurry !<br/>
