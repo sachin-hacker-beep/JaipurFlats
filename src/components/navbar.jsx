@@ -46,9 +46,9 @@ window.onscroll = () => {
                 <i onClick={HandleMenu} className={`col-lg-2 col-2 col-md-6 fs-4 d-flex justify-content-end d-lg-none  text-black ${isopen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'}`} id="bars"></i>
 
                 <ul className={`col-lg-10 ${showmenu ? 'nav-mob' : 'd-none'} col-md-12 list-unstyled d-lg-flex  justify-content-end`}  id="navlist">
-                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/">home</Link></li>
-                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Properties">properties</Link></li>
-                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to=""> contact us</Link></li>
+                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/">Home</Link></li>
+                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Properties">Properties</Link></li>
+                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Contact"> Contact us</Link></li>
                     <div className="special-link d-none d-lg-flex  justify-content-center align-items-center gap-1 ">
                         <span className="special-icon ">
                             <i className="fa-solid fa-calendar  text-white"></i>

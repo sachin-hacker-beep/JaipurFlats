@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router"
 import BookSchedule from "./components/BookSchedule";
 import Home from "./components/home";
 import Properties from "./components/properties";
+import Contact from "./components/contact";
 
 function App() {
   const bookhead=(
@@ -16,11 +17,13 @@ function App() {
   )
   return (
     <>
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/BookSchedule" element={<Properties heading={bookhead} />} />
         <Route path="/Properties" element={<Properties heading={propertyhead} />} />
         <Route path="/BookVisit" element={<BookSchedule />} />
+        <Route path="/Contact" element={<Contact />} />
       </Routes>
     </>
   )

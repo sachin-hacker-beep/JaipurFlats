@@ -2,6 +2,9 @@
     .card-container .card-1 h6{
         padding-right: 95px;
     }
+    .form-cont{
+        width: 90%;
+    }
 }
 @media only screen and (max-width:1500px){
     .card-container .card-1 h6{
@@ -15,10 +18,14 @@
     .card-container .card-1 h6{
         padding-right: 25px;
     }
+    
 }
 @media only screen and (max-width:991px){
     .header1{
         display: none;
+    }
+    .form-cont{
+        width: 60%;
     }
     .hero1banner {
        padding: 100px 18% 150px 18%;
@@ -115,8 +122,30 @@
     .main-feature-box1{
         display: none;
     }
+    .form-cont{
+        width: 80%;
+    }
     .hero1{
         margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width:500px){
+    .form-cont{
+        width: 90%;
+        padding: 10px !important;
+    }
+}
+
+@media only screen and (max-width:576px){
+    .contact-main{
+        flex-direction: column-reverse;
+    }
+    .contact-info ul li{
+        font-size: 12px;
+    }
+    .contact-info ul li h5{
+        font-size: 14px;
     }
 }
 @media only screen and (max-width:540px){
@@ -158,11 +187,15 @@
     .card-container .card-1 h6{
         padding-right: 20px;
     }
+    .form-cont{
+        width: 80%;
+    }
 }
 @media only screen and (width:768px){
     .card-container{
         padding: 0px 12px;
     }
+    
 }
 @media only screen and (max-width:767px) and (min-width:700px){
     .sofa{
@@ -175,8 +208,23 @@
     .card-container {
         padding: 0px 92px;
     }
+    .contact-info ul li h5{
+        font-size:  16px;
+    }
+    .contact-info ul li {
+        font-size:  14px;
+    }
 }
 
+
+@media only screen and (max-width:699px) and (min-width:577px){
+    .contact-info ul li h5{
+        font-size:  16px;
+    }
+    .contact-info ul li {
+        font-size:  14px;
+    }
+}
 @media only screen and (max-width:699px) and (min-width:600px){
     .sofa{
         padding: 100px;
@@ -313,6 +361,15 @@
     .card-container{
         padding: 60px;
         padding-bottom: 0px;
+    }
+}
+@media only screen and (max-width:400px){
+    .form-cont{
+        width: 90%;
+        font-size: 14px;
+    }
+    .form-cont input::placeholder{
+        font-size: 14px;
     }
 }
 @media only screen and (max-width:375px){

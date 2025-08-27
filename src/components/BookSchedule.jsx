@@ -20,13 +20,13 @@ function BookSchedule() {
     <>
       <Navigation />
       <section className="form-div d-flex w-full justify-content-center align-items-center">
-      <div className=" form-cont p-5  row w-70 d-flex justify-content-center align-items-center ">
-        <h1 className="text-white text-center pb-4">Have a Visit :)</h1>
-        <div className="main_form_div d-flex justify-content-between">
-          <figure className='col-5 '>  
-            <img className='pe-5' src={tree_img} alt="" />
+      <div className=" form-cont row p-5 w-70 d-flex justify-content-center align-items-center ">
+        <h1 className="text-white mt-5 text-center pb-4">Have a Visit :)</h1>
+        <div className="main_form_div row d-flex justify-content-between">
+          <figure className='col-6 d-none img-fluid p-5 d-lg-flex' >  
+            <img className='' src={tree_img} alt="" />
           </figure>
-          <form className='col-5 text-white' action="">
+          <form className='col-lg-6 col-12  text-white ' action="">
             <div className="mb-3">
               <label htmlFor="fullName" className="form-label">Full Name</label>
               <input type="text" onChange={(e) => setFormData({ ...formData, fullName: e.target.value })} value={formData.fullName} className="form-control"  id="fullName" placeholder="Enter full name" />

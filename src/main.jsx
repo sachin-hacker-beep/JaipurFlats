@@ -6,9 +6,11 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './index.css';
 import './media.css';
 import { HashRouter } from 'react-router-dom';
+import ScrollToTop from './components/scrolltotop.jsx';
 
 createRoot(document.getElementById('root')).render(
   <HashRouter>
+    <ScrollToTop />
     <App />
   </HashRouter>
 )

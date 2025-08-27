@@ -110,8 +110,8 @@ const propdata=villas.map(villa=>{
     return (
       <>
         
-        <div className="col-lg-4 col-md-5 card-container">
-            <div className="card-1 " id="card-1">
+        <div className="col-lg-4 p-4 col-md-6 col-sm-12 card-container card-div">
+            <div className="card-1" id="card-1">
                 <img className="img-fluid mb-2" src={villa.image} alt="" />
                 <span className=" p-1 mt-1 "> {villa.type} </span>
                 <h6 style={{textAlign: "right"}} className=" fw-bold">{villa.price}</h6>
@@ -123,7 +123,7 @@ const propdata=villas.map(villa=>{
                     <li className="text-capitalize">floor : {villa.floor}</li>
                     <li className="text-capitalize">parking: {villa.parking}</li>
                 </ul>
-                <button className="main-btn text-center "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
+                <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
             </div>        
         </div>
       </>
@@ -135,7 +135,7 @@ function Property({ data }) {
 
   return (
     <>
-    <section className="hero6 p-0 p-sm-5 container-fluid">
+    <section className="mt-3 hero6 p-0 p-sm-5 container-fluid container-fluid gy-5">
         <div className="container">
             <div className="row">
                 <div className="col-12">
@@ -147,10 +147,12 @@ function Property({ data }) {
             </div>
         </div>
     </section>
-    <div className="row d-flex justify-content-center align-items-center">
-        {propdata}
-    </div>
-    </>
+    <div className="container">
+      <div className="row d-flex  justify-content-center align-items-center">
+          {propdata}
+      </div>
+    </div>  
+  </>
   )
 }
 
