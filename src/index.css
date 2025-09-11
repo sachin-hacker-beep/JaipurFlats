@@ -374,7 +374,7 @@
     /* align-items: x; */
 }
 .card-1{
-    padding: 30px;
+    padding: 0px;
     background-color: #fafafa;
     border-radius: 10px;
 }
@@ -396,9 +396,8 @@
 .card-container .card-1 h6{
     font-size: 20px;
     color: #f35525;
-    margin-top: 6px;
     float: right;
-    margin-top: 0px;
+    margin-top: 6px;
 }
 .card-container .card-1 h4{
     font-size: 19px;

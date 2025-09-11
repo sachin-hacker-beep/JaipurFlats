@@ -109,15 +109,6 @@
         padding: 5px;
     }
 }    
-@media only screen and (max-width:767px){
-    .main-feature{
-        display: flex;
-        flex-direction: column;
-    }
-    .main-feature-box1 img{
-        padding: 90px 90px 10px 0px;
-    }
-}
 @media only screen and (max-width:767px) and (min-width:541px){
     .main-feature-box1{
         display: none;
@@ -128,14 +119,15 @@
     .hero1{
         margin-bottom: 30px;
     }
-}
-
-@media only screen and (max-width:500px){
-    .form-cont{
-        width: 90%;
-        padding: 10px !important;
+    .main-feature{
+        display: flex;
+        flex-direction: column;
+    }
+    .main-feature-box1 img{
+        padding: 90px 90px 10px 0px;
     }
 }
+
 
 @media only screen and (max-width:576px){
     .contact-main{
@@ -146,6 +138,12 @@
     }
     .contact-info ul li h5{
         font-size: 14px;
+    }
+}
+@media only screen and (max-width:500px){
+    .form-cont{
+        width: 90%;
+        padding: 10px !important;
     }
 }
 @media only screen and (max-width:540px){
@@ -214,6 +212,9 @@
     .contact-info ul li {
         font-size:  14px;
     }
+    .card-1{
+        padding: 50px;
+    }
 }
 
 
@@ -237,6 +238,9 @@
     .card-container {
         padding: 0px 92px;
     }
+    .card-1{
+        padding: 60px;
+    }
 }
 @media only screen and (max-width:599px) and (min-width:541px){
     .sofa{
@@ -249,6 +253,9 @@
     }
     .card-container {
         padding: 30px 92px;
+    }
+    .card-1{
+        padding: 60px;
     }
 }
 @media only screen and (max-width:540px){
@@ -301,12 +308,15 @@
         width: 40px;
         height: 40px;
         margin-right: 25px;
-    }
+      }
     .main-feature-box3 div h4{
         font-size: 20px;
     }
     .footer-item{
         font-size: 12px;
+    }
+    .card-1{
+        padding: 60px;
     }
 }
 @media only screen and (max-width:430px){
@@ -314,7 +324,9 @@
         font-size: 42px;
         font-weight: 700;
     }
-    
+    .card-1{
+        padding: 20px;
+    }
     .hero1banner {
         padding: 50px 18% 100px 10%;
     }
@@ -371,6 +383,7 @@
     .form-cont input::placeholder{
         font-size: 14px;
     }
+
 }
 @media only screen and (max-width:375px){
     .best-deal .deal-img{
@@ -378,5 +391,8 @@
     }
     .main-feature-box3 div{
         width: 100%;
+    }
+    .card-1{
+        padding: 10px;
     }
 }    
