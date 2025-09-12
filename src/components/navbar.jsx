@@ -49,6 +49,7 @@ window.onscroll = () => {
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/">Home</Link></li>
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Properties">Properties</Link></li>
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Contact"> Contact us</Link></li>
+                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Add-Property"> Add Property</Link></li>
                     <div className="special-link d-none d-lg-flex  justify-content-center align-items-center gap-1 ">
                         <span className="special-icon ">
                             <i className="fa-solid fa-calendar  text-white"></i>

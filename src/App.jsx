@@ -3,6 +3,7 @@ import BookSchedule from "./components/BookSchedule";
 import Home from "./components/home";
 import Properties from "./components/properties";
 import Contact from "./components/contact";
+import AddProperty from "./components/add-property";
 
 function App() {
   const bookhead=(
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Properties" element={<Properties heading={propertyhead} />} />
         <Route path="/BookVisit" element={<BookSchedule />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="/Add-Property" element={<AddProperty />} />
       </Routes>
     </>
   )
