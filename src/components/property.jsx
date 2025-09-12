@@ -9,6 +9,7 @@ import Propertyimg6 from "../assets/property-06.jpg";
 import doraemon from "../assets/dorahouse.jpg";
 import ninja from "../assets/ninja.jpg";
 import shinchan from "../assets/shinchan.jpeg";
+import dora from "../assets/doraemon.webp";
 const propimgs = {
   "property-01.jpg": Propertyimg1,
   "property-02.jpg": Propertyimg2,
@@ -18,7 +19,8 @@ const propimgs = {
   "property-06.jpg": Propertyimg6,
   "dorahouse.jpg": doraemon,
   "ninja.jpg": ninja,
-  "shinchan.jpeg": shinchan
+  "shinchan.jpeg": shinchan,
+  "doraemon.webp":dora
 }
 function Property({mydata}) {
   const [Properties, setProperties] = useState([]);
