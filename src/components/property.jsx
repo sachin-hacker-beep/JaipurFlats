@@ -25,7 +25,7 @@ const propimgs = {
 function Property({mydata}) {
   const [Properties, setProperties] = useState([]);
   useEffect(()=>{
-    fetch("http://localhost:3200/properties")
+    fetch("https://house-backend.onrender.com/properties")
     .then((res)=>res.json())
     .then((data)=>{
       console.log("fetched data :", data)

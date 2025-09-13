@@ -19,7 +19,7 @@ function AddProperty() {
     e.preventDefault();
     console.log(Field);
     try{  
-      const res = await fetch("http://localhost:3200/add-property",{
+      const res = await fetch("https://house-backend.onrender.com/add-property",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(Field)
