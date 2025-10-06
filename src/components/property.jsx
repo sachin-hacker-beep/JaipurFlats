@@ -23,19 +23,46 @@ const propimgs = {
   "doraemon.webp":dora
 }
 function Property({mydata}) {
-  const [Properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState([]);
+  const getProperties = async ()=>{
+    try{
+    const res = await fetch("http://localhost:3400/properties")
+    const data = await res.json()
+    console.log(data);
+    setProperties(data)
+    }
+    catch(err){
+      console.error(err)
+    }
+  }
+  
   useEffect(()=>{
-    fetch("https://house-backend.onrender.com/properties")
-    .then((res)=>res.json())
-    .then((data)=>{
-      console.log("fetched data :", data)
-      setProperties(data)
-    })
-    .catch((err)=>
-      console.log(err)
-    )
+    getProperties()
   },[]);
+  const deleteProperty = async (id) =>{
+    try{
+      const res = await fetch(`http://localhost:3400/property/delete/${id}`,{
+        method: "delete",
+      });
+      // console.log(id);
+      
+       const data = await res.json();
+       if (res.ok){
+        alert("Property Deleted Successfully");
+        console.log("Deleted Data", data);
 
+        getProperties();
+       }
+       else{
+        alert("Property Deletion Failed");
+         console.log("property not found");
+         
+       }
+  }
+    catch(err){
+      console.log("Error:", err);
+    }
+}
   return (
   <>
       <section className="mt-3 hero6 p-0 p-sm-5 container-fluid container-fluid gy-5">
@@ -53,12 +80,12 @@ function Property({mydata}) {
       <div className="container">
         <div className="row d-flex  justify-content-center align-items-center">
           {
-            Properties.map((item)=>
+            properties.map((item)=>
               <div className="col-lg-4 p-4 col-md-6 col-sm-12 card-container card-div" key={item.id}>
                 <div className="card-1" id="card-1">
                     <img src={propimgs[item.image]} className="img-fluid" alt="propertyimg" />
                     <span className=" p-1 mt-1 "> {item.type} </span>
-                    <h6 style={{textAlign: "right"}} className=" fw-bold">{item.price}</h6>
+                    <h6 style={{textAlign: "right"}} className=" fw-bold">$ {item.price}</h6>
                     <h4 className="fw-bold">{item.address}</h4>
                     <ul>
                         <li className="text-capitalize">bedroom : {item.bedrooms} </li>
@@ -68,6 +95,8 @@ function Property({mydata}) {
                         <li className="text-capitalize">parking: {item.parking}</li>
                     </ul>
                     <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
+                    <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to={`/property/update/${item.id}`}> Update Details</Link></button>
+                    <button onClick={()=>deleteProperty(item.id)} className="main-btn text-center mb-2 ">Delete</button>
                 </div>
               </div>
             )
@@ -76,17 +105,5 @@ function Property({mydata}) {
     </div>
   </>
   )
-}
-export default Property;
-
-
-
-
-
-
-
-
-
-
-
-
+  }
+export default Property

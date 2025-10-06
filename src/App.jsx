@@ -26,6 +26,7 @@ function App() {
         <Route path="/BookVisit" element={<BookSchedule />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Add-Property" element={<AddProperty />} />
+        <Route path="/property/update/:id" element={<AddProperty />} />
       </Routes>
     </>
   )
