@@ -380,6 +380,9 @@
         width: 90%;
         font-size: 14px;
     }
+    .user-form{
+        font-size: 16px;
+    }
     .form-cont input::placeholder{
         font-size: 14px;
     }

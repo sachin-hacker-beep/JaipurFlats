@@ -40,9 +40,13 @@ function Property({mydata}) {
     getProperties()
   },[]);
   const deleteProperty = async (id) =>{
+      const token = localStorage.getItem("token");
     try{
       const res = await fetch(`http://localhost:3400/property/delete/${id}`,{
         method: "delete",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       });
       // console.log(id);
       

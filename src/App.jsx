@@ -4,6 +4,7 @@ import Home from "./components/home";
 import Properties from "./components/properties";
 import Contact from "./components/contact";
 import AddProperty from "./components/add-property";
+import Authcheck from "./components/authcheck";
 
 function App() {
   const bookhead=(
@@ -27,6 +28,8 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Add-Property" element={<AddProperty />} />
         <Route path="/property/update/:id" element={<AddProperty />} />
+        <Route path="/User/SignUp" element={<Authcheck />} />
+
       </Routes>
     </>
   )

@@ -14,6 +14,11 @@ window.onscroll = () => {
         setIsOpen(false);
     }
 };
+const token = localStorage.getItem("token");
+const handleLogout =()=>{
+    localStorage.removeItem("token");
+    window.location.href = "/";
+}
   return (
     <>
     <header className="container-fluid d-none d-lg-flex header1">
@@ -49,12 +54,13 @@ window.onscroll = () => {
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/">Home</Link></li>
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Properties">Properties</Link></li>
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Contact"> Contact us</Link></li>
-                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Add-Property"> Add Property</Link></li>
+                    { token ? <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Add-Property"> Add Property</Link></li> : null }
+                    {token ? <li className="w-full nav-item-li"><Link onClick={handleLogout} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</Link></li> :  <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}
                     <div className="special-link d-none d-lg-flex  justify-content-center align-items-center gap-1 ">
-                        <span className="special-icon ">
-                            <i className="fa-solid fa-calendar  text-white"></i>
-                        </span>
-                         <li className="text-center"><Link className="text-capitalize nav-items text-white" to="/BookSchedule"> schedule visit</Link></li>
+                    <span className="special-icon ">
+                        <i className="fa-solid fa-calendar  text-white"></i>
+                    </span>
+                    <li className="text-center"><Link className="text-capitalize nav-items text-white" to="/BookSchedule"> schedule visit</Link></li>
                     </div>
                 </ul>
             </div>

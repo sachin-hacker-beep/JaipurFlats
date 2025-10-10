@@ -50,16 +50,28 @@ function AddProperty() {
       ? `http://localhost:3400/property/update/${id}`
       : "http://localhost:3400/add-property";
       const method = id ? "PUT" : "POST";
+      const token = localStorage.getItem("token");
     try{
       const { id: _ignore, ...propertyData } = Fields; // id ko hata diya
+      console.log(propertyData);
+      console.log(url);
       const res = await fetch(url,{
         method,
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(Fields),
+        headers:{"Content-Type":"application/json",
+        "Authorization": `Bearer ${token}`,
+        },
+        body:JSON.stringify(propertyData),
       });
       const data = await res.json();
-      console.log(data);
-      id? alert("Property Updated Successfully") : alert("Property Added Successfully");
+      if(res.status == 200){
+        console.log(data);
+        id? alert("Property Updated Successfully") : alert("Property Added Successfully");
+        window.location.href = "/";
+      }
+      if(res.status == 403){
+        alert(data.message);
+      }
+      
   }
   catch(err){
     console.log(err);
@@ -73,7 +85,7 @@ function AddProperty() {
         {/* <h1 className='text-center'>Add Your Property <br /> to Our <br /> Connection</h1> */}
         <div className="  d-flex semi-div w-lg-100 p-lg-5 justify-content-center align-items-center flex-column ">
           <h2 className='pt-3 text-white'>{id?"Edit Your Property":"Add Your Property"}</h2>
-          <form onSubmit={handleSubmit} className='d-flex add-form justify-content-center align-items-center flex-column' action="" method='/'>
+          <form onSubmit={handleSubmit} className='d-flex add-form justify-content-center align-items-center flex-column' >
             <input value={Fields.type} name='type' type="text" onChange={handleChange} placeholder="Property type" required />
             <input value={Fields.price} name='price' type="number" onChange={handleChange} placeholder="Price" required />
             <input value={Fields.address} name='address' type="text" onChange={handleChange} placeholder="Location" required />
