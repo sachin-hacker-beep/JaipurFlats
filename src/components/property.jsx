@@ -24,49 +24,15 @@ const propimgs = {
 }
 function Property({mydata}) {
   const [properties, setProperties] = useState([]);
-  const getProperties = async ()=>{
-    try{
-    const res = await fetch("http://localhost:3400/properties")
-    const data = await res.json()
-    console.log(data);
-    setProperties(data)
-    }
-    catch(err){
-      console.error(err)
-    }
-  }
-  
-  useEffect(()=>{
-    getProperties()
+  useEffect(() =>{  
+    fetch("https://jaipurflats-backend.onrender.com/properties")
+    .then(res => res.json())
+    .then(data => setProperties(data))
+    .catch(err => console.error("Error fetching properties:", err));
   },[]);
-  const deleteProperty = async (id) =>{
-      const token = localStorage.getItem("token");
-    try{
-      const res = await fetch(`http://localhost:3400/property/delete/${id}`,{
-        method: "delete",
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      // console.log(id);
-      
-       const data = await res.json();
-       if (res.ok){
-        alert("Property Deleted Successfully");
-        console.log("Deleted Data", data);
-
-        getProperties();
-       }
-       else{
-        alert("Property Deletion Failed");
-         console.log("property not found");
-         
-       }
+  if(properties.length === 0){
+    return <h1 className="text-center mt-5">No Properties Available</h1>;
   }
-    catch(err){
-      console.log("Error:", err);
-    }
-}
   return (
   <>
       <section className="mt-3 hero6 p-0 p-sm-5 container-fluid container-fluid gy-5">
@@ -99,8 +65,6 @@ function Property({mydata}) {
                         <li className="text-capitalize">parking: {item.parking}</li>
                     </ul>
                     <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
-                    <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to={`/property/update/${item.id}`}> Update Details</Link></button>
-                    <button onClick={()=>deleteProperty(item.id)} className="main-btn text-center mb-2 ">Delete</button>
                 </div>
               </div>
             )
@@ -110,4 +74,4 @@ function Property({mydata}) {
   </>
   )
   }
-export default Property
+export default Property;

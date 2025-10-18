@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router';
+import Authcheck from './authcheck.jsx';
 
 function Navigation() {
 const [showmenu, setShowMenu] = useState(false);
@@ -17,6 +18,7 @@ window.onscroll = () => {
 const token = localStorage.getItem("token");
 const handleLogout =()=>{
     localStorage.removeItem("token");
+    alert("Logged out successfully");
     window.location.href = "/";
 }
   return (
@@ -52,7 +54,7 @@ const handleLogout =()=>{
 
                 <ul className={`col-lg-10 ${showmenu ? 'nav-mob' : 'd-none'} col-md-12 list-unstyled d-lg-flex  justify-content-end`}  id="navlist">
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/">Home</Link></li>
-                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Properties">Properties</Link></li>
+                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/properties/MyProperty">My Property</Link></li>
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Contact"> Contact us</Link></li>
                     { token ? <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Add-Property"> Add Property</Link></li> : null }
                     {token ? <li className="w-full nav-item-li"><Link onClick={handleLogout} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</Link></li> :  <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}

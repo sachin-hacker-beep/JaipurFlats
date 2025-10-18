@@ -31,7 +31,7 @@ function Authcheck() {
     const handleSignup = async (e) => {
         e.preventDefault();
         try{
-            const res = await fetch("http://localhost:3400/User/SignUp",{
+            const res = await fetch("https://jaipurflats-backend.onrender.com/User/SignUp",{
                 method: "POST",
                 body:JSON.stringify(signup),
                 headers:{"Content-Type":"application/json"}
@@ -49,8 +49,13 @@ function Authcheck() {
     } 
     const handleSignIn = async (e) => {
         e.preventDefault();
+        if(localStorage.getItem("token")){
+            alert("You are already logged in");
+            window.location.href = "/";
+            return;
+        }
         try{
-            const res = await fetch("http://localhost:3400/User/SignIn",{
+            const res = await fetch("https://jaipurflats-backend.onrender.com/User/SignIn",{
                method: "post",
                body: JSON.stringify(signin),
                headers: {"Content-Type":"application/json"} 

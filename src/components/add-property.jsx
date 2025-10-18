@@ -47,10 +47,14 @@ function AddProperty() {
   const handleSubmit= async (e)=>{
     e.preventDefault(); 
       const url = id
-      ? `http://localhost:3400/property/update/${id}`
-      : "http://localhost:3400/add-property";
+      ? `https://jaipurflats-backend.onrender.com/properties/update/${id}`
+      : "https://jaipurflats-backend.onrender.com/add-property";
       const method = id ? "PUT" : "POST";
       const token = localStorage.getItem("token");
+      if(!token){
+        alert("Please login to add or update property");
+        return;
+      }
     try{
       const { id: _ignore, ...propertyData } = Fields; // id ko hata diya
       console.log(propertyData);
