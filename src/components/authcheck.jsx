@@ -39,7 +39,7 @@ function Authcheck() {
             const data= await res.json()
             console.log("Data Is :", data);
             if(res.status === 200){
-                window.location.href = "/";
+                window.location.href = "/#/";
                 alert(data.message);
             }
         }
@@ -63,7 +63,7 @@ function Authcheck() {
             const data = await res.json();
             if(res.status === 200){
                 localStorage.setItem("token",data.token);
-                window.location.href = "/";
+                window.location.href = "/#/";
                 alert(data.message); 
                 console.log("Data Is :", data);
             }
