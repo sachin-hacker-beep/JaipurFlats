@@ -30,7 +30,7 @@ function MyProperty({mydata}) {
     const token = localStorage.getItem("token");
     if(!token){
       alert("Please login to view your properties");
-      window.location.href = "/User/SignUp";
+      window.location.href = "/#/User/SignUp";
       return;
     }
     try{

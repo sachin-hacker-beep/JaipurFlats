@@ -51,7 +51,7 @@ function Authcheck() {
         e.preventDefault();
         if(localStorage.getItem("token")){
             alert("You are already logged in");
-            window.location.href = "/";
+            window.location.href = "/#/";
             return;
         }
         try{
