@@ -18,5 +18,21 @@
     border-radius: 8px;
     margin: 10px 0;
 }
-
-   
+@media only screen and (max-width:700px){
+    .semi-div{
+        width: 80%;
+    }
+}
+@media only screen and (max-width:450px){
+    .semi-div{
+        width: 90%;
+    }
+}   
+@media only screen and (max-width:400px){
+    .semi-div{
+        width: 100%;
+    }
+    .add-form input{
+        width: 90%;
+    }
+}
