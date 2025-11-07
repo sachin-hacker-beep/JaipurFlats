@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router"
+import { Route, Routes} from "react-router"
 import BookSchedule from "./components/BookSchedule";
 import Home from "./components/home";
 import Contact from "./components/contact";

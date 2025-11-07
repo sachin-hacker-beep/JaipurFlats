@@ -5,6 +5,7 @@ import Navigation from './navbar';
 import Footer from './footer';
 function AddProperty() {
   const [Fields, SetField] = useState({
+    useremail: "",
     type: "",
     price: "",
     address: "",
@@ -24,6 +25,7 @@ function AddProperty() {
         const property = data.find(item=>item.id == id);
         if(property){ 
           SetField({
+            useremail: property.useremail || "",  
             type: property.type || "",
             price: property.price || "",
             address: property.address || "",
@@ -75,6 +77,10 @@ function AddProperty() {
       if(res.status == 403){
         alert(data.message);
       }
+      if(res.status == 405){
+        alert(data.message);
+      }
+
       
   }
   catch(err){
@@ -90,6 +96,7 @@ function AddProperty() {
         <div className="  d-flex semi-div w-lg-100 p-lg-5 justify-content-center align-items-center flex-column ">
           <h2 className='pt-3 text-white'>{id?"Edit Your Property":"Add Your Property"}</h2>
           <form onSubmit={handleSubmit} className='d-flex add-form justify-content-center align-items-center flex-column' >
+            <input value={Fields.email} name='useremail' type="email" onChange={handleChange} placeholder="User Email " required />
             <input value={Fields.type} name='type' type="text" onChange={handleChange} placeholder="Property type" required />
             <input value={Fields.price} name='price' type="number" onChange={handleChange} placeholder="Price" required />
             <input value={Fields.address} name='address' type="text" onChange={handleChange} placeholder="Location" required />

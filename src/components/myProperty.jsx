@@ -36,8 +36,16 @@ function MyProperty({mydata}) {
     try{
       const res = await fetch("https://jaipurflats-backend.onrender.com/properties/MyProperty",
       {headers: {"Authorization": `Bearer ${token}`},});
-      if(!res.ok){
-        console.log("Failed to fetch properties");
+      if(res.status===401){
+        console.log("Your Token Expired");
+        localStorage.removeItem("token");
+        window.location.href = "/#/User/SignUp"
+        return;
+      }
+      if(res.status===403){
+        console.log("unable to fetch properties");
+        localStorage.removeItem("token");
+        window.location.href = "/#/User/SignUp"
         return;
       }
       const data = await res.json();
