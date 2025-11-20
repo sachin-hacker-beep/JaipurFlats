@@ -19,7 +19,7 @@ function AddProperty() {
   const { id } = useParams();
   useEffect(()=>{
     if(id){
-      fetch("http://localhost:3400/properties")
+      fetch(`https://jaipurflats-backend.onrender.com/properties`)
       .then((res)=>res.json())
       .then((data)=>{
         const property = data.find(item=>item.id == id);
@@ -41,52 +41,46 @@ function AddProperty() {
         console.log(property);
       }).catch((err)=>{console.log(err)});
   }},[id]);
-  
-  
   const handleChange=(e)=>{
     SetField({...Fields,[e.target.name]:e.target.value})
   }  
   const handleSubmit= async (e)=>{
     e.preventDefault(); 
-      const url = id
-      ? `https://jaipurflats-backend.onrender.com/properties/update/${id}`
-      : "https://jaipurflats-backend.onrender.com/add-property";
-      const method = id ? "PUT" : "POST";
       const token = localStorage.getItem("token");
       if(!token){
         alert("Please login to add or update property");
         return;
       }
-    try{
-      const { id: _ignore, ...propertyData } = Fields; // id ko hata diya
-      console.log(propertyData);
-      console.log(url);
-      const res = await fetch(url,{
-        method,
-        headers:{"Content-Type":"application/json",
-        "Authorization": `Bearer ${token}`,
-        },
-        body:JSON.stringify(propertyData),
-      });
-      const data = await res.json();
-      if(res.status == 200){
-        console.log(data);
-        id? alert("Property Updated Successfully") : alert("Property Added Successfully");
-        window.location.href = "/";
+      let url = id? `https://jaipurflats-backend.onrender.com/property/update/${id}` : "https://jaipurflats-backend.onrender.com/add-property";
+      let method = id? "PUT" : "POST";
+      try{
+        const { id: _ignore, ...propertyData } = Fields; // id ko hata diya
+        console.log(propertyData);
+        // console.log(url);
+        const res = await fetch(url,{
+          method ,
+          headers:{"Content-Type":"application/json",
+          "Authorization": `    Bearer ${token}`,
+          },
+          body:JSON.stringify(propertyData),
+        });
+        const data = await res.json();
+        if(res.status == 200){
+          console.log(data);
+          id? alert("Property Updated Successfully") : alert("Property Added Successfully");
+          window.location.href = "/";
+        }
+        if(res.status == 403){
+          alert(data.message);
+        }
+        if(res.status == 405){
+          alert(data.message);
+        }
       }
-      if(res.status == 403){
-        alert(data.message);
-      }
-      if(res.status == 405){
-        alert(data.message);
-      }
-
-      
-  }
-  catch(err){
-    console.log(err);
-    alert("Error Occured");
-  }
+    catch(err){
+      console.log(err);
+      alert("Error Occured");
+    }
 };  
   return (
     <>

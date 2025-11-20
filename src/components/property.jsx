@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from "react";
+import { useParams } from "react-router-dom";
+import {useEffect, useState} from "react";
 import { Link } from "react-router";
 import Propertyimg1 from "../assets/property-01.jpg";
 import Propertyimg2 from "../assets/property-02.jpg";
@@ -22,17 +23,95 @@ const propimgs = {
   "shinchan.jpeg": shinchan,
   "doraemon.webp":dora
 }
+
 function Property({mydata}) {
   const [properties, setProperties] = useState([]);
+  const [Fields, SetField] = useState({
+    useremail: "",
+    type: "",  
+    price: "",
+    address: "",
+    bedrooms: "",
+    bathrooms: "",
+    area: "",
+    floor: "",
+    parking: "",
+    image: ""
+  });
   useEffect(() =>{  
     fetch("https://jaipurflats-backend.onrender.com/properties")
     .then(res => res.json())
     .then(data => setProperties(data))
     .catch(err => console.error("Error fetching properties:", err));
   },[]);
+const { id } = useParams();
+  
   if(properties.length === 0){
     return <h1 className="text-center mt-5">No Properties Available</h1>;
   }
+
+  const deleteProperty = async (id) =>{
+        const token = localStorage.getItem("token");
+      try{
+        const res = await fetch(`https://jaipurflats-backend.onrender.com/property/delete/${id}`,{
+          method: "delete",
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+         const data = await res.json();
+         if (res.ok){
+          alert("Property Deleted Successfully");
+          console.log("Deleted Data", data);
+          // setProperties(properties.filter((item) => item.id !== id));
+         }
+         else{
+          alert("Property Deletion Failed");
+           console.log("property not found");
+           
+         }
+    }
+      catch(err){
+        console.log("Error:", err);
+      }
+  }
+  
+  
+//   const handleupdate= async (e)=>{
+//       const token = localStorage.getItem("token");
+//       if(!token){
+//         alert("Please login to add or update property");
+//         return;
+//       }
+//     try{
+//       const { id: _ignore, ...propertyData } = Fields; // id ko hata diya
+//       console.log(propertyData);
+//       // console.log(url);
+//       const res = await fetch(`https://jaipurflats-backend.onrender.com/properties/update/${id}`,{
+//         method:"PUT",
+//         headers:{"Content-Type":"application/json",
+//         "Authorization": `Bearer ${token}`,
+//         },
+//         body:JSON.stringify(propertyData),
+//       });
+//       const data = await res.json();
+//       if(res.status == 200){
+//         console.log(data);
+//         id? alert("Property Updated Successfully") : alert("Property Added Successfully");
+//         window.location.href = "/";
+//       }
+//       if(res.status == 403){
+//         alert(data.message);
+//       }
+//       if(res.status == 405){
+//         alert(data.message);
+//       }
+//   }
+//   catch(err){
+//     console.log(err);
+//     alert("Error Occured");
+//   }
+// }
   return (
   <>
       <section className="mt-3 hero6 p-0 p-sm-5 container-fluid container-fluid gy-5">
@@ -65,6 +144,8 @@ function Property({mydata}) {
                         <li className="text-capitalize">parking: {item.parking}</li>
                     </ul>
                     <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
+                    <Link className="main-btn text-center mb-2 text-white text-decoration-none" to={`/property/update/${item.id}`}> Update Details</Link>
+                    <button onClick={()=>deleteProperty(item.id)} className="main-btn text-center mb-2 ">Delete</button>
                 </div>
               </div>
             )
@@ -73,5 +154,5 @@ function Property({mydata}) {
     </div>
   </>
   )
-  }
+}
 export default Property;

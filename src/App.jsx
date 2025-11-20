@@ -6,6 +6,7 @@ import AddProperty from "./components/add-property";
 import Authcheck from "./components/authcheck";
 import MyProperty from "./components/myProperty";
 import Properties from "./components/properties";
+import { ProtectRoute } from "./protectroute";
 function App() {
   const bookhead=(
     <>
@@ -20,7 +21,7 @@ function App() {
         <Route path="/properties/MyProperty" element={<MyProperty />} />
         <Route path="/BookVisit" element={<BookSchedule />} />
         <Route path="/Contact" element={<Contact />} />
-        <Route path="/Add-Property" element={<AddProperty />} />
+        <Route path="/Add-Property" element={<ProtectRoute><AddProperty /></ProtectRoute>} />
         <Route path="/property/update/:id" element={<AddProperty />} />
         <Route path="/User/SignUp" element={<Authcheck />} />
       </Routes> 

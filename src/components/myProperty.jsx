@@ -59,38 +59,7 @@ function MyProperty({mydata}) {
   useEffect(()=>{
     getMyProperties();
   },[]);
-  // useEffect(() =>{  
-    // fetch("http://localhost:3400/properties/MyProperty")
-    // .then(res => res.json())
-    // .then(data => setMyProperties(data))
-    // .catch(err => console.error("Error fetching properties:", err));
-  // },[]);
-  const deleteProperty = async (id) =>{
-      const token = localStorage.getItem("token");
-    try{
-      const res = await fetch(`https://jaipurflats-backend.onrender.com/property/delete/${id}`,{
-        method: "delete",
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-       const data = await res.json();
-       if (res.ok){
-        alert("Property Deleted Successfully");
-        console.log("Deleted Data", data);
-
-        getMyProperties();
-       }
-       else{
-        alert("Property Deletion Failed");
-         console.log("property not found");
-         
-       }
-  }
-    catch(err){
-      console.log("Error:", err);
-    }
-}
+  
   return (
   <>
       <Navigation />
@@ -124,8 +93,7 @@ function MyProperty({mydata}) {
                         <li className="text-capitalize">parking: {items.parking}</li>
                     </ul>
                     <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
-                    <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to={`/property/update/${items.id}`}> Update Details</Link></button>
-                    <button onClick={()=>deleteProperty(items.id)} className="main-btn text-center mb-2 ">Delete</button>
+                    
                 </div>
               </div>
             )
