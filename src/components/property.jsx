@@ -112,6 +112,7 @@ const { id } = useParams();
 //     alert("Error Occured");
 //   }
 // }
+  const role = localStorage.getItem("role"); 
   return (
   <>
       <section className="mt-3 hero6 p-0 p-sm-5 container-fluid container-fluid gy-5">
@@ -144,8 +145,9 @@ const { id } = useParams();
                         <li className="text-capitalize">parking: {item.parking}</li>
                     </ul>
                     <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
-                    <Link className="main-btn text-center mb-2 text-white text-decoration-none" to={`/property/update/${item.id}`}> Update Details</Link>
-                    <button onClick={()=>deleteProperty(item.id)} className="main-btn text-center mb-2 ">Delete</button>
+                    { role== "admin" ?  <Link className="main-btn text-center mb-2 text-white text-decoration-none" to={`/property/ update/${item.id}`}> Update Details</Link>
+                    : null }
+                    { role== "admin" ?  <button onClick={()=>deleteProperty(item.id)} className="main-btn text-center mb-2 ">Delete</button> : null }
                 </div>
               </div>
             )

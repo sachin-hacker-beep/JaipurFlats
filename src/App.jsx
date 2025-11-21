@@ -7,6 +7,7 @@ import Authcheck from "./components/authcheck";
 import MyProperty from "./components/myProperty";
 import Properties from "./components/properties";
 import { ProtectRoute } from "./protectroute";
+import Find from "./components/find";
 function App() {
   const bookhead=(
     <>
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Add-Property" element={<ProtectRoute><AddProperty /></ProtectRoute>} />
         <Route path="/property/update/:id" element={<AddProperty />} />
         <Route path="/User/SignUp" element={<Authcheck />} />
+        <Route path="/FindProperty" element={<Find />} />
       </Routes> 
     </>
   )

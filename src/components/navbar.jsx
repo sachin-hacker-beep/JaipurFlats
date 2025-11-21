@@ -5,9 +5,15 @@ import Authcheck from './authcheck.jsx';
 function Navigation() {
 const [showmenu, setShowMenu] = useState(false);
 const [isopen, setIsOpen] = useState(false);
+const [dropDown, setdropDown] = useState(false);
+const [dropMenu, setdropMenu] = useState(false);
 const HandleMenu=()=>{
     setShowMenu(!showmenu);
     setIsOpen(!isopen);
+}
+const handleDropDown=()=>{
+    setdropDown(!dropDown);
+    setdropMenu(!dropMenu);
 }
 window.onscroll = () => {
     if (window.scrollY > 200) {
@@ -16,6 +22,7 @@ window.onscroll = () => {
     }
 };
 const token = localStorage.getItem("token");
+
 const handleLogout =()=>{
     localStorage.removeItem("token");
     localStorage.removeItem("role");
@@ -57,15 +64,20 @@ const checkrole = localStorage.getItem("role");
                 <ul className={`col-lg-10 ${showmenu ? 'nav-mob' : 'd-none'} col-md-12 list-unstyled d-lg-flex  justify-content-end`}  id="navlist">
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/">Home</Link></li>
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/properties/MyProperty">My Property</Link></li>
-                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Contact"> Contact us</Link></li>
+                    
                     { checkrole === "admin" ? <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Add-Property"> Add Property</Link></li> : null }
-                    {token ? <li className="w-full nav-item-li"><Link onClick={handleLogout} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</Link></li> :  <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}
+                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Contact"> Contact us</Link></li>
                     <div className="special-link d-none d-lg-flex  justify-content-center align-items-center gap-1 ">
                     <span className="special-icon ">
                         <i className="fa-solid fa-calendar  text-white"></i>
                     </span>
                     <li className="text-center"><Link className="text-capitalize nav-items text-white" to="/BookSchedule"> schedule visit</Link></li>
                     </div>
+                    <i onClick={handleDropDown} className={`fa-solid ${dropDown ? 'fa-angle-up': 'fa-angle-down drop-sign'} border d-flex justify-content-center align-items-center p-2 ms-2`}></i>
+                    <ul className={`dropdown-Menu ${dropMenu ? 'd-flex flex-column':' d-none' } list-unstyled p-2`}>
+                        {checkrole === "admin" ? <li className= "w-full list-unstyled nav-item-li "><Link to="/FindProperty" className='text-black text-capitalize nav-items bg-transparent py-1'> Find Property </Link></li>: null}
+                        {token ? <li className="w-full nav-item-li"><Link onClick={handleLogout} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</Link></li> :  <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}
+                    </ul>
                 </ul>
             </div>
         </nav>    
