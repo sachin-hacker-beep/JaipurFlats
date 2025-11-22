@@ -2,22 +2,45 @@ import React from 'react'
 import Navigation from './navbar';
 import Footer from './footer';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Propertyimg1 from "../assets/property-01.jpg";
+import Propertyimg2 from "../assets/property-02.jpg";
+import Propertyimg3 from "../assets/property-03.jpg";
+import Propertyimg4 from "../assets/property-04.jpg";
+import Propertyimg5 from "../assets/property-05.jpg";
+import Propertyimg6 from "../assets/property-06.jpg";
+import doraemon from "../assets/dorahouse.jpg";
+import ninja from "../assets/ninja.jpg";
+import shinchan from "../assets/shinchan.jpeg";
+import dora from "../assets/doraemon.webp";
+const propimgs = {
+  "property-01.jpg": Propertyimg1,
+  "property-02.jpg": Propertyimg2,
+  "property-03.jpg": Propertyimg3,
+  "property-04.jpg": Propertyimg4,
+  "property-05.jpg": Propertyimg5,
+  "property-06.jpg": Propertyimg6,
+  "dorahouse.jpg": doraemon,
+  "ninja.jpg": ninja,
+  "shinchan.jpeg": shinchan,
+  "doraemon.webp":dora
+}
 function Find() {
     const token = localStorage.getItem("token");
     
     const [properties, setProperties] = useState([]);
     const [mail, setMail] = useState("");
-
+    const role = localStorage.getItem("role");
     const searchProperty = async () =>{
         try{
-            const res = await fetch("https://jaipurflats-backend.onrender.com/properties/find",{
-                method: "post",
+            const res = await fetch("https://jaipurflats-backend.onrender.com/property/FindProperty",{
+                method: "POST",
                 headers:{
                     "Content-Type":"application/json",
                     "Authorization":`Bearer ${token}`,
                 },
-                body:JSON.stringify({email:mail})
-            })
+                body:JSON.stringify({useremail:mail})
+            });
             const data = await res.json();
             if(res.ok){
                 setProperties(data.property)
@@ -41,13 +64,13 @@ function Find() {
                 </div>
                 
                 <div className="col-md-2">
-                    <button className="btn btn-primary w-100">Search</button>
+                    <button onClick={searchProperty} className="btn btn-primary w-100">Search</button>
                 </div>        
             </div>               
         </div>    
         <section className="container mt-5">
                <div className="row">
-                {/* {properties.length > 0 ? properties.map((item) => (
+                {properties.length > 0 ? properties.map((item) => (
                     <div key={item.id} className="col-lg-4 col-md-6 p-4 col-sm-12 card-container card-div">
                         <div className='card-1' id='card-1'>
                             <img src={propimgs[item.image]} className="img-fluid" alt="propertyimg" />
@@ -62,12 +85,12 @@ function Find() {
                                 <li className="text-capitalize">parking: {item.parking}</li>
                             </ul>
                             <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
-                            { role== "admin" ?  <Link className="main-btn text-center mb-2 text-white text-decoration-none" to={`/property/ update/${item.id}`}> Update Details</Link>
-                            : null }
+                            <br />
+                            { role== "admin" ?  <Link className="main-btn text-center mb-2 text-white text-decoration-none" to={`/property/update/${item.id}`}> Update Details</Link>: null }
                             { role== "admin" ?  <button onClick={()=>deleteProperty(item.id)} className="main-btn text-center mb-2 ">Delete</button> : null }
                         </div>
                     </div>  
-            ) ) : <p className="text-center">No properties found.</p>}   */}
+            ) ) : <p className="text-center">No properties found.</p>}  
             </div>
         </section >
             

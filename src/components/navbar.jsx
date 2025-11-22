@@ -74,13 +74,14 @@ const checkrole = localStorage.getItem("role");
                     <li className="text-center"><Link className="text-capitalize nav-items text-white" to="/BookSchedule"> schedule visit</Link></li>
                     </div>
                     <i onClick={handleDropDown} className={`fa-solid ${dropDown ? 'fa-angle-up': 'fa-angle-down drop-sign'} border d-flex justify-content-center align-items-center p-2 ms-2`}></i>
-                    <ul className={`dropdown-Menu ${dropMenu ? 'd-flex flex-column':' d-none' } list-unstyled p-2`}>
-                        {checkrole === "admin" ? <li className= "w-full list-unstyled nav-item-li "><Link to="/FindProperty" className='text-black text-capitalize nav-items bg-transparent py-1'> Find Property </Link></li>: null}
+                    <ul className={`dropdown-Menu bg-white ${dropMenu ? 'd-flex flex-column':' d-none' } list-unstyled p-2`}>
+                        {checkrole === "admin" ? <li className="w-full text-black list-unstyled nav-item-li "><Link to="/FindProperty" className='text-black text-capitalize nav-items bg-transparent py-1'> Find Property </Link></li>: null}
                         {token ? <li className="w-full nav-item-li"><Link onClick={handleLogout} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</Link></li> :  <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}
                     </ul>
                 </ul>
             </div>
-        </nav>    
+
+        </nav>   
     </header>
     </>
   )

@@ -145,7 +145,8 @@ const { id } = useParams();
                         <li className="text-capitalize">parking: {item.parking}</li>
                     </ul>
                     <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
-                    { role== "admin" ?  <Link className="main-btn text-center mb-2 text-white text-decoration-none" to={`/property/ update/${item.id}`}> Update Details</Link>
+                    <br />
+                    { role== "admin" ?  <Link className="main-btn text-center mb-2 text-white text-decoration-none" to={`/property/update/${item.id}`}> Update Details</Link>
                     : null }
                     { role== "admin" ?  <button onClick={()=>deleteProperty(item.id)} className="main-btn text-center mb-2 ">Delete</button> : null }
                 </div>
