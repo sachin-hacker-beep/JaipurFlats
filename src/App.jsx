@@ -1,5 +1,4 @@
-import { Route, Routes} from "react-router";
-import {HashRouter} from "react-router-dom";
+import { Route, Routes} from "react-router"
 import BookSchedule from "./components/BookSchedule";
 import Home from "./components/home";
 import Contact from "./components/contact";
@@ -17,7 +16,6 @@ function App() {
   )
   return (
     <>
-    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/BookSchedule" element={<Properties heading={bookhead} />} />
@@ -29,7 +27,6 @@ function App() {
         <Route path="/User/SignUp" element={<Authcheck />} />
         <Route path="/FindProperty" element={<Find />} />
       </Routes> 
-    </ HashRouter> 
     </>
   )
 }
