@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Authcheck from './authcheck.jsx';
 import {useNavigate} from 'react-router-dom';
 
@@ -28,6 +28,8 @@ const handleLogout =()=>{
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     alert("Logged out successfully");
+    setShowMenu(false);
+    setIsOpen(false);
     navigate("/");
 }
 const checkrole = localStorage.getItem("role");
@@ -70,7 +72,7 @@ const checkrole = localStorage.getItem("role");
 
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Contact"> Contact us</Link></li>
   
-                    {token ? <li className="w-full nav-item-li d-lg-none"><Link onClick={handleLogout} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</Link></li> :  <li className="w-full nav-item-li d-lg-none"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}
+                    {token ? <li className="w-full nav-item-li d-lg-none "><button onClick={handleLogout} className={`text-black logout-btn text-center ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</button> </li> :  <li className="w-full nav-item-li d-lg-none"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}
 
                     <div className="special-link d-none d-lg-flex  justify-content-center align-items-center gap-1 ">
                     <span className="special-icon ">
@@ -82,7 +84,7 @@ const checkrole = localStorage.getItem("role");
                     
                     {<ul className={`dropdown-Menu bg-white ${dropMenu ? 'd-flex flex-column':' d-none' } list-unstyled p-2`}>
                         {checkrole === "admin" ? <li className="w-full text-black list-unstyled nav-item-li "><Link to="/FindProperty" className='text-black text-capitalize nav-items bg-transparent py-1'> Find Property </Link></li>: null}
-                        {token ? <li className="w-full text-black d-lg-block nav-item-li"><Link onClick={handleLogout} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</Link></li> :  <li className="w-full nav-item-li d-lg-block"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>} 
+                        {token ? <li className="w-full text-black d-lg-block nav-item-li"><button onClick={handleLogout} className={`text-black logout-btn ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</button></li> :  <li className="w-full nav-item-li d-lg-block"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>} 
                     </ul>}
                 </ul>
             </div>

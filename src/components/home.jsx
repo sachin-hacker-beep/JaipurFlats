@@ -10,13 +10,11 @@ import Properties from './properties';
 function Home() {
   return (
     <>
-    	<Navigation />
       <Banner />
       <Bestview />
       <Videosec />
       <Bestdeals />
       <Property />
-      <Footer />
     </>
   )
 }

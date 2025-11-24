@@ -11,8 +11,6 @@ import doraemon from "../assets/dorahouse.jpg";
 import ninja from "../assets/ninja.jpg";
 import shinchan from "../assets/shinchan.jpeg";
 import dora from "../assets/doraemon.webp";
-import Footer from "./footer";
-import Navigation from "./navbar";
 const propimgs = {
   "property-01.jpg": Propertyimg1,
   "property-02.jpg": Propertyimg2,
@@ -35,6 +33,7 @@ function MyProperty({mydata}) {
       navigate("/User/SignUp");
       return;
     }
+
     try{
       const res = await fetch("https://jaipurflats-backend.onrender.com/properties/MyProperty",
       {headers: {"Authorization": `Bearer ${token}`},});
@@ -64,7 +63,6 @@ function MyProperty({mydata}) {
   
   return (
   <>
-      <Navigation />
       <section className="mt-3 hero6 p-0 p-sm-5 container-fluid container-fluid gy-5">
         <div className="container">
             <div className="row">
@@ -79,6 +77,9 @@ function MyProperty({mydata}) {
       </section>
       <div className="container">
         <div className="row d-flex  justify-content-center align-items-center">
+          {myproperties.length === 0 && (
+            <h3 className="text-center mt-5">You have not added any properties yet.</h3>
+          )}
           {
             myproperties.map((items)=>
               <div className="col-lg-4 p-4 col-md-6 col-sm-12 card-container card-div" key={items.id}>
@@ -102,7 +103,6 @@ function MyProperty({mydata}) {
           }
       </div>
     </div>
-    <Footer />
   </>
   )
 }

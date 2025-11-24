@@ -1,5 +1,3 @@
-import Navigation from './navbar'
-import Footer from './footer'
 import './signup.css'
 import { useState } from 'react'
 import {useNavigate} from 'react-router-dom';
@@ -84,7 +82,6 @@ function Authcheck() {
     }
   return (
     <>
-    <Navigation />
     <section className='container-fluid d-flex justify-content-center '>
         <div className='container d-flex justify-content-center  '>
             <div className=' w-full py-4 d-flex w-100  justify-content-center align-items-center'>
@@ -109,7 +106,6 @@ function Authcheck() {
             </div>
         </div>
     </section>
-    <Footer />
     </>
   )
 }

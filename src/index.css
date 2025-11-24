@@ -2,6 +2,24 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1; /* pushes footer to bottom */
+}
+
 .nav-icon{
     width: 30px;
     height: auto;
@@ -342,6 +360,16 @@
 }
 .nav-item-style{
     color: #f35525;
+}
+.logout-btn{
+    border: none;
+    
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1E1E1E;
+    letter-spacing: normal;
+    cursor: pointer;
 }
 .special-icon-2{
     padding: 1px;

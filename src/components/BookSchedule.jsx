@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Navigation from './navbar';
 import tree_img from "../assets/treeimg.png";
 
 function BookSchedule() {
@@ -18,7 +17,6 @@ function BookSchedule() {
 
   return (
     <>
-      <Navigation />
       <section className="form-div d-flex w-full justify-content-center align-items-center">
       <div className=" form-cont row p-5 w-70 d-flex justify-content-center align-items-center ">
         <h1 className="text-white mt-5 text-center pb-4">Have a Visit :)</h1>
