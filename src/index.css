@@ -505,3 +505,6 @@
     border-color: #333;
     box-shadow: none;
 }
+.form-link{
+    cursor: pointer;
+}

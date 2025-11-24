@@ -16,6 +16,7 @@ function App() {
   )
   return (
     <>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/BookSchedule" element={<Properties heading={bookhead} />} />
@@ -27,6 +28,7 @@ function App() {
         <Route path="/User/SignUp" element={<Authcheck />} />
         <Route path="/FindProperty" element={<Find />} />
       </Routes> 
+    </ HashRouter> 
     </>
   )
 }
