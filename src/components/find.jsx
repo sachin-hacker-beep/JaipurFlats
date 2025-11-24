@@ -1,5 +1,4 @@
 import React from 'react'
-import Navigation from './navbar';
 import Footer from './footer';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -54,7 +53,6 @@ function Find() {
     }
   return (
     <>
-    <Navigation />
     <div className="container-fluid my-5">
         <div className="container">
             <h2 className="text-center mb-4">Find Property by Email</h2>
@@ -95,7 +93,6 @@ function Find() {
         </section >
             
     </div>
-    <Footer />
     </>
   )
 }

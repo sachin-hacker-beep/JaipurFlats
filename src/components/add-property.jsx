@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import './add-property.css';
-import Navigation from './navbar';
-import Footer from './footer';
 import { useNavigate } from 'react-router-dom';
 function AddProperty() {
   const [Fields, SetField] = useState({
@@ -86,7 +84,6 @@ function AddProperty() {
 };  
   return (
     <>
-    <Navigation />
       <section className="add-property mt-4 mb-4 container-fluid d-flex justify-content-center font-weight-bold flex-column align-items-center ">
         {/* <h1 className='text-center'>Add Your Property <br /> to Our <br /> Connection</h1> */}
         <div className="  d-flex semi-div w-lg-100 p-lg-5 justify-content-center align-items-center flex-column ">
@@ -106,7 +103,6 @@ function AddProperty() {
           </form>
         </div>
       </section>
-    <Footer />  
     </>
   )
 }
