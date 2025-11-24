@@ -66,21 +66,25 @@ const checkrole = localStorage.getItem("role");
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/properties/MyProperty">My Property</Link></li>
                     
                     { checkrole === "admin" ? <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Add-Property"> Add Property</Link></li> : null }
+
                     <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Contact"> Contact us</Link></li>
+  
+                    {token ? <li className="w-full nav-item-li d-lg-none"><Link onClick={handleLogout} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</Link></li> :  <li className="w-full nav-item-li d-lg-none"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}
+
                     <div className="special-link d-none d-lg-flex  justify-content-center align-items-center gap-1 ">
                     <span className="special-icon ">
                         <i className="fa-solid fa-calendar  text-white"></i>
                     </span>
                     <li className="text-center"><Link className="text-capitalize nav-items text-white" to="/BookSchedule"> schedule visit</Link></li>
                     </div>
-                    <i onClick={handleDropDown} className={`fa-solid ${dropDown ? 'fa-angle-up': 'fa-angle-down drop-sign'} border d-flex justify-content-center align-items-center p-2 ms-2`}></i>
-                    <ul className={`dropdown-Menu bg-white ${dropMenu ? 'd-flex flex-column':' d-none' } list-unstyled p-2`}>
+                    <i onClick={handleDropDown} className={`fa-solid ${dropDown ? 'fa-angle-up': 'fa-angle-down drop-sign d-none d-lg-flex'} border d-flex justify-content-center align-items-center p-2 ms-2`}></i>
+                    
+                    {<ul className={`dropdown-Menu bg-white ${dropMenu ? 'd-flex flex-column':' d-none' } list-unstyled p-2`}>
                         {checkrole === "admin" ? <li className="w-full text-black list-unstyled nav-item-li "><Link to="/FindProperty" className='text-black text-capitalize nav-items bg-transparent py-1'> Find Property </Link></li>: null}
-                        {token ? <li className="w-full nav-item-li"><Link onClick={handleLogout} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</Link></li> :  <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}
-                    </ul>
+                        {token ? <li className="w-full text-black d-lg-block nav-item-li"><Link onClick={handleLogout} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</Link></li> :  <li className="w-full nav-item-li d-lg-block"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>} 
+                    </ul>}
                 </ul>
             </div>
-
         </nav>   
     </header>
     </>

@@ -75,43 +75,6 @@ const { id } = useParams();
         console.log("Error:", err);
       }
   }
-  
-  
-//   const handleupdate= async (e)=>{
-//       const token = localStorage.getItem("token");
-//       if(!token){
-//         alert("Please login to add or update property");
-//         return;
-//       }
-//     try{
-//       const { id: _ignore, ...propertyData } = Fields; // id ko hata diya
-//       console.log(propertyData);
-//       // console.log(url);
-//       const res = await fetch(`https://jaipurflats-backend.onrender.com/properties/update/${id}`,{
-//         method:"PUT",
-//         headers:{"Content-Type":"application/json",
-//         "Authorization": `Bearer ${token}`,
-//         },
-//         body:JSON.stringify(propertyData),
-//       });
-//       const data = await res.json();
-//       if(res.status == 200){
-//         console.log(data);
-//         id? alert("Property Updated Successfully") : alert("Property Added Successfully");
-//         window.location.href = "/";
-//       }
-//       if(res.status == 403){
-//         alert(data.message);
-//       }
-//       if(res.status == 405){
-//         alert(data.message);
-//       }
-//   }
-//   catch(err){
-//     console.log(err);
-//     alert("Error Occured");
-//   }
-// }
   const role = localStorage.getItem("role"); 
   return (
   <>
@@ -145,10 +108,11 @@ const { id } = useParams();
                         <li className="text-capitalize">parking: {item.parking}</li>
                     </ul>
                     <button className="main-btn text-center mb-2 "><Link className="text-white text-decoration-none" to="/BookVisit"> Schedule a Visit</Link></button>
-                    <br />
+                    <br /><br />
                     { role== "admin" ?  <Link className="main-btn text-center mb-2 text-white text-decoration-none" to={`/property/update/${item.id}`}> Update Details</Link>
                     : null }
-                    { role== "admin" ?  <button onClick={()=>deleteProperty(item.id)} className="main-btn text-center mb-2 ">Delete</button> : null }
+                    <br /><br />
+                    {role== "admin" ?  <button onClick={()=>deleteProperty(item.id)} className="main-btn text-center mb-2 ">Delete</button> : null }
                 </div>
               </div>
             )
