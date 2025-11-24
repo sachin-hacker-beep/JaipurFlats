@@ -1,4 +1,5 @@
-import { Route, Routes} from "react-router"
+import { Route, Routes} from "react-router";
+import {HashRouter} from "react-router-dom";
 import BookSchedule from "./components/BookSchedule";
 import Home from "./components/home";
 import Contact from "./components/contact";
