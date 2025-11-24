@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router';
 import Authcheck from './authcheck.jsx';
+import {useNavigate} from 'react-router-dom';
 
 function Navigation() {
 const [showmenu, setShowMenu] = useState(false);
@@ -22,12 +23,12 @@ window.onscroll = () => {
     }
 };
 const token = localStorage.getItem("token");
-
+const navigate = useNavigate();
 const handleLogout =()=>{
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     alert("Logged out successfully");
-    window.location.href = "/JaipurFlats/#/";
+    navigate("/");
 }
 const checkrole = localStorage.getItem("role");
   return (

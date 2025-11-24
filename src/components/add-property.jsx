@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import './add-property.css';
 import Navigation from './navbar';
 import Footer from './footer';
+import { useNavigate } from 'react-router-dom';
 function AddProperty() {
   const [Fields, SetField] = useState({
     useremail: "",
@@ -44,6 +45,7 @@ function AddProperty() {
   const handleChange=(e)=>{
     SetField({...Fields,[e.target.name]:e.target.value})
   }  
+  const navigate = useNavigate();
   const handleSubmit= async (e)=>{
     e.preventDefault(); 
       const token = localStorage.getItem("token");
@@ -68,7 +70,7 @@ function AddProperty() {
         if(res.status == 200){
           console.log(data);
           id? alert("Property Updated Successfully") : alert("Property Added Successfully");
-          window.location.href = "/";
+          navigate("/");
         }
         if(res.status == 403){
           alert(data.message);

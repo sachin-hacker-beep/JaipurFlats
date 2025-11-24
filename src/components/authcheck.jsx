@@ -40,7 +40,7 @@ function Authcheck() {
             const data= await res.json()
             console.log("Data Is :", data);
             if(res.status === 200){
-                window.location.href = "/#/";
+                navigate("/");
                 alert(data.message);
             }
         }
@@ -52,7 +52,7 @@ function Authcheck() {
         e.preventDefault();
         if(localStorage.getItem("token")){
             alert("You are already logged in");
-            window.location.href = "/#/";
+            navigate("/");
             return;
         }
         try{

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router";
+import { useNavigate } from "react-router-dom";
 import Propertyimg1 from "../assets/property-01.jpg";
 import Propertyimg2 from "../assets/property-02.jpg";
 import Propertyimg3 from "../assets/property-03.jpg";
@@ -26,11 +27,12 @@ const propimgs = {
 }
 function MyProperty({mydata}) {
   const [myproperties, setMyProperties] = useState([]);
+  const navigate = useNavigate();
   const getMyProperties = async ()=>{
     const token = localStorage.getItem("token");
     if(!token){
       alert("Please login to view your properties");
-      window.location.href = "/#/User/SignUp";
+      navigate("/User/SignUp");
       return;
     }
     try{
@@ -39,13 +41,13 @@ function MyProperty({mydata}) {
       if(res.status===401){
         console.log("Your Token Expired");
         localStorage.removeItem("token");
-        window.location.href = "/#/User/SignUp"
+        navigate("/User/SignUp");
         return;
       }
       if(res.status===403){
         console.log("unable to fetch properties");
         localStorage.removeItem("token");
-        window.location.href = "/#/User/SignUp"
+        navigate("/User/SignUp");
         return;
       }
       const data = await res.json();
