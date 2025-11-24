@@ -2,7 +2,7 @@ import Navigation from './navbar'
 import Footer from './footer'
 import './signup.css'
 import { useState } from 'react'
-
+import {useNavigate} from 'react-router-dom';
 function Authcheck() {
     const [login, setLogin] = useState(false);
     const [signup, setSignup] = useState({
@@ -14,6 +14,7 @@ function Authcheck() {
         email:"",
         password:""
     });
+    const navigate = useNavigate();
     const handleUserSubmit = (e) =>{
         if(!signup.Username || !signup.email || !signup.password){
             alert("Please fill all the fields");
@@ -64,7 +65,7 @@ function Authcheck() {
             if(res.status === 200){
                 localStorage.setItem("token",data.token);
                 localStorage.setItem("role",data.role)
-                window.location.href = "/#/";
+                navigate("/");
                 alert(data.message); 
                 console.log("Data Is :", data);
             }

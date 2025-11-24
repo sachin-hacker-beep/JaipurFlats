@@ -27,7 +27,7 @@ const handleLogout =()=>{
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     alert("Logged out successfully");
-    window.location.href = "/";
+    window.location.href = "/JaipurFlats/#/";
 }
 const checkrole = localStorage.getItem("role");
   return (
