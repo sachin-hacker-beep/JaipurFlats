@@ -65,6 +65,11 @@ function AddProperty() {
           body:JSON.stringify(propertyData),
         });
         const data = await res.json();
+        if(res.status == 401 || res.message === "Token Expired"){
+          alert("Session expired. Please login again.");
+          navigate("/User/SignIn");
+          return;
+        }
         if(res.status == 200){
           console.log(data);
           id? alert("Property Updated Successfully") : alert("Property Added Successfully");

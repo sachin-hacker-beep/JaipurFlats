@@ -40,6 +40,7 @@ function MyProperty({mydata}) {
       if(res.status===401){
         console.log("Your Token Expired");
         localStorage.removeItem("token");
+        localStorage.removeItem("role");
         navigate("/User/SignUp");
         return;
       }

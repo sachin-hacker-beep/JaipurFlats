@@ -22,6 +22,10 @@ window.onscroll = () => {
         setIsOpen(false);
     }
 };
+const handleNavigateMenu = () =>{
+    setShowMenu(false);
+    setIsOpen(false);
+}
 const token = localStorage.getItem("token");
 const navigate = useNavigate();
 const handleLogout =()=>{
@@ -62,29 +66,29 @@ const checkrole = localStorage.getItem("role");
         <nav className="nav-2-container container p-0">
             <div className="nav2 row col-12 p-0 pb-0 pt-4 d-flex ">
                 <h1 className=" col-lg-2 col-md-6 col-4 fs-3 fw-bold  fs-md-5">VILLA</h1>
-                <i onClick={HandleMenu} className={`col-lg-2 col-2 col-md-6 fs-4 d-flex justify-content-end d-lg-none  text-black ${isopen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'}`} id="bars"></i>
+                <i onClick={HandleMenu} className={`cmenol-lg-2 col-2 col-md-6 fs-4 d-flex justify-content-end d-lg-none  text-black ${isopen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'}`} id="bars"></i>
 
                 <ul className={`col-lg-10 ${showmenu ? 'nav-mob' : 'd-none'} col-md-12 list-unstyled d-lg-flex  justify-content-end`}  id="navlist">
-                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/">Home</Link></li>
-                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/properties/MyProperty">My Property</Link></li>
+                    <li className="w-full nav-item-li"><Link onClick={handleNavigateMenu} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/">Home</Link></li>
+                    <li className="w-full nav-item-li"><Link onClick={handleNavigateMenu} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/properties/MyProperty">My Property</Link></li>
                     
-                    { checkrole === "admin" ? <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Add-Property"> Add Property</Link></li> : null }
+                    { checkrole === "admin" ? <li className="w-full nav-item-li"><Link onClick={handleNavigateMenu} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Add-Property"> Add Property</Link></li> : null }
 
-                    <li className="w-full nav-item-li"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Contact"> Contact us</Link></li>
+                    <li className="w-full nav-item-li"><Link onClick={handleNavigateMenu} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/Contact"> Contact us</Link></li>
   
-                    {token ? <li className="w-full nav-item-li d-lg-none "><button onClick={handleLogout} className={`text-black logout-btn text-center ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</button> </li> :  <li className="w-full nav-item-li d-lg-none"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}
+                    {token ? <li className="w-full nav-item-li d-lg-none "><button onClick={() => { handleLogout(); handleNavigateMenu(); }} className={`text-black logout-btn text-center ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</button> </li> :  <li className="w-full nav-item-li d-lg-none"><Link onClick={handleNavigateMenu} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>}
 
                     <div className="special-link d-none d-lg-flex  justify-content-center align-items-center gap-1 ">
                     <span className="special-icon ">
                         <i className="fa-solid fa-calendar  text-white"></i>
                     </span>
-                    <li className="text-center"><Link className="text-capitalize nav-items text-white" to="/BookSchedule"> schedule visit</Link></li>
+                    <li className="text-center"><Link onClick={handleNavigateMenu} className="text-capitalize nav-items text-white" to="/BookSchedule"> schedule visit</Link></li>
                     </div>
                     <i onClick={handleDropDown} className={`fa-solid ${dropDown ? 'fa-angle-up': 'fa-angle-down drop-sign d-none d-lg-flex'} border d-flex justify-content-center align-items-center p-2 ms-2`}></i>
                     
                     {<ul className={`dropdown-Menu bg-white ${dropMenu ? 'd-flex flex-column':' d-none' } list-unstyled p-2`}>
-                        {checkrole === "admin" ? <li className="w-full text-black list-unstyled nav-item-li "><Link to="/FindProperty" className='text-black text-capitalize nav-items bg-transparent py-1'> Find Property </Link></li>: null}
-                        {token ? <li className="w-full text-black d-lg-block nav-item-li"><button onClick={handleLogout} className={`text-black logout-btn ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</button></li> :  <li className="w-full nav-item-li d-lg-block"><Link className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>} 
+                        {checkrole === "admin" ? <li className="w-full text-black list-unstyled nav-item-li "><Link onClick={handleNavigateMenu} to="/FindProperty" className='text-black text-capitalize nav-items bg-transparent py-1'> Find Property </Link></li>: null}
+                        {token ? <li className="w-full text-black d-lg-block nav-item-li"><button onClick={() => { handleLogout(); handleNavigateMenu(); }} className={`text-black logout-btn ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</button></li> :  <li className="w-full nav-item-li d-lg-block"><Link onClick={() => { handleLogout(); handleNavigateMenu();} } className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>} 
                     </ul>}
                 </ul>
             </div>
