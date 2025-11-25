@@ -88,7 +88,7 @@ const checkrole = localStorage.getItem("role");
                     
                     {<ul className={`dropdown-Menu bg-white ${dropMenu ? 'd-flex flex-column':' d-none' } list-unstyled p-2`}>
                         {checkrole === "admin" ? <li className="w-full text-black list-unstyled nav-item-li "><Link onClick={handleNavigateMenu} to="/FindProperty" className='text-black text-capitalize nav-items bg-transparent py-1'> Find Property </Link></li>: null}
-                        {token ? <li className="w-full text-black d-lg-block nav-item-li"><button onClick={() => { handleLogout(); handleNavigateMenu(); }} className={`text-black logout-btn ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</button></li> :  <li className="w-full nav-item-li d-lg-block"><Link onClick={() => { handleLogout(); handleNavigateMenu();} } className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>} 
+                        {token ? <li className="w-full text-black d-lg-block nav-item-li"><button onClick={() => { handleLogout(); handleNavigateMenu(); }} className={`text-black logout-btn ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`}> logout</button></li> :  <li className="w-full nav-item-li d-lg-block"><Link onClick={handleNavigateMenu} className={`text-black ${showmenu ? 'text-white' : 'text-black'} text-capitalize nav-items bg-transparent py-1`} to="/User/SignUp"> SignUp</Link></li>} 
                     </ul>}
                 </ul>
             </div>

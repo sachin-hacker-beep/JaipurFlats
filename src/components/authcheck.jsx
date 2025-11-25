@@ -91,6 +91,7 @@ function Authcheck() {
                         <input type="text" name='Username' value={signup.Username} onChange={(e)=> setSignup({...signup, Username:e.target.value})} id="sign-Username" className=' rounded-0 mb-3' placeholder='Your Name' required />
                         <input type="email" name='email' value={signup.email} onChange={(e) => setSignup({...signup, email:e.target.value})} id="sign-email" className=' mb-3 rounded-0' placeholder='Your Email' required />
                         <input type="password" name='password' value={signup.password} onChange={(e) => setSignup({...signup, password:e.target.value})} id="sign-password" className=' mb-3 rounded-0' rows="1" placeholder='Your Password' required />
+                        <p className="text-danger bold">* Please Login After Sign Up</p>
                         <button style={{backgroundColor: '#f35525', border: 'none'}} onClick={handleUserSubmit} type="submit" className='btn mt-1 btn-primary'>Sign Up</button>
                         <br /> <br /> <a onClick={()=> setLogin(true)} className='form-link text-white' htmlFor="#">Already have an account? Login</a>
                     </form> :
